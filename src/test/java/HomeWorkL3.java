@@ -20,7 +20,17 @@ public class HomeWorkL3 {
         $x("//*[@id=\"wiki-pages-box\"]/div/div[2]/ul/li[19]/button").click();
         $x("//*[@class='Box Box--condensed color-shadow-small']").shouldHave(text("SoftAssertions"));
         $x("//*[text()='SoftAssertions']").click();
-        $x("//div[@id='wiki-content']").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})"));
+        $x("//div[@id='wiki-content']").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "void test() {\n" +
+                "Configuration.assertionMode = SOFT;\n" +
+                "open(\"page.html\");\n" +
+                "\n" +
+                "$(\"#first\").should(visible).click();\n" +
+                "$(\"#second\").should(visible).click();\n" +
+                "}\n" +
+                "}"));
 
 
     }
