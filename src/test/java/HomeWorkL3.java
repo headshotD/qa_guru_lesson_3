@@ -1,16 +1,22 @@
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class HomeWorkL3 {
     @BeforeAll
     static void configurationBrowser() {
         Configuration.baseUrl = "https://github.com";
         com.codeborne.selenide.Configuration.pageLoadStrategy = "eager";
+    }
+
+    @AfterAll
+    static void closechrome() {
+        closeWebDriver();
     }
 
     @Test
